@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate') %> 
+
+<div class="row">
+    <div class="col-md-6 offset-md-3 my-5">
+        <div class="card ">
+            <img src="<%=legend.image%>" class="card-img-top" alt="<%=legend.name%>"  height="600">
+            <div class="card-body">
+              <h5 class="card-title"><%=legend.name%></h5>
+              <p class="card-text"><%= legend.about %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%=legend.POB %></li>
+              <li class="list-group-item">Born: <%=legend.DOB %> </li>
+            </ul>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Posted By: <%=legend.author.username%></li>
+            </ul>
+            <% if(currentUser && legend.author.equals(currentUser._id)){ %> 
+            <div class="card-body">
+              <a href="/legends/<%=legend._id%>/edit" class="btn btn-warning card-link">Edit</a>
+              <form class="d-inline" method="POST" action="/legends/<%=legend._id%>?_method=DELETE">
+                <button class="btn btn-danger card-link">Delete</button></form>
+            </div>
+            <% } %> 
+          <% if(currentUser){ %> 
+          <div class="card-body">
+            <form class="needs-validation" action="/legends/<%=legend._id%>/comments" method="POST" novalidate>
+              <textarea class="form-control" placeholder="Add a Comment....."  name="comment[text]" id="text" cols="10" rows="1" required></textarea>
+              <div class="invalid-feedback">
+                Cannot Post an Empty Comment !!!
+              </div>
+              <button class="btn btn-primary card-link m-2">Post</button>
+            </form>
+          </div>
+          <% } %> 
+          
+            <h2 class="fw-bolder " style="text-align: center;">Comments</h2>
+          <% for(let comment of legend.comments){ %> 
+            <div class="card-body">
+              <ul class="list-group list-group-flush"></ul>
+              <li class="list-group-item">@<%=comment.author.username%> <br><%=comment.text%></li>
+              <% if(currentUser && comment.author._id.equals(currentUser._id)){ %> 
+              <form action="/legends/<%=legend._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST" >
+                <button class="btn btn-sm btn-danger card-link m-2">Delete</button>
+              </form>
+              <% } %> 
+              </ul>
+            </div>
+          <% } %> 
+        
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<a href="/legends">All Legends</a>

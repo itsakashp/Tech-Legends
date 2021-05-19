@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate') %> 
+<h1 style="text-align: center;" class="mt-3"> All Legends</h1>
+<%for(let legend of legends){%>
+    <div class="card  border border-5 mt-4" style="background-color: #ffffff;" >
+        <div class="row ">
+          <div class="col-md-3 me-md-5">
+            <img class="" src="<%=legend.image%>" alt="<%=legend.name%>" width="450" height="380">
+          </div>
+          <div class="col-md-8 ms-md-5 ps-md-5">
+            <div class="card-body">
+              <h5 class="card-title h2"><%=legend.name%></h5>
+              <p class="card-text"><%=legend.about%></p>
+              <p class="card-text"><small class="text-muted"><%=legend.POB%></small></p>
+              <a href="/legends/<%=legend._id%>" class="btn mt-5" style="background-color: #ed73f1;"> <img src="images/info.png" alt="" width="30" height="21" class="d-inline-block align-text-top">  More about <%=legend.name%></a>
+            </div>
+          </div>
+        </div>
+      </div>
+<%}%> 
+
+
+
+
+
+
