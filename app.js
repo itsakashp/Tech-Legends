@@ -15,7 +15,7 @@ const userRoutes = require('./routes/users');
 const passport = require('passport');
 const LocalStrategy = require('passport-local')
 const User = require('./models/user');
-
+const helmet = require('helmet')
 
 
 const app = express();
@@ -49,6 +49,9 @@ const sessionOptions = {
 
 app.use(session(sessionOptions));
 app.use(flash());
+app.use(helmet({
+    contentSecurityPolicy:false,
+}))
 app.engine('ejs', ejsMate);
 app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
