@@ -2,7 +2,7 @@
 <div class="row my-5">
     <div class="col-md-6 offset-md-3">
 <h1 class="text-center">Edit Legend</h1>
-<form action="/legends/<%=legend._id%>?_method=PUT" method="post" class="needs-validation" novalidate>
+<form action="/legends/<%=legend._id%>?_method=PUT" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
     <div class="mb-3">
         <label for="name" class="form-label">Name: </label>
         <input type="text" class="form-control" name="name" id="name" value="<%=legend.name%>" required>
@@ -16,14 +16,25 @@
         <input type="text" class="form-control" name="POB" id="POB" value="<%=legend.POB%>" required>
     </div>
     <div class="mb-3">
+        <label class="form-label" for="images">Add New Images</label>
+        <input type="file" class="form-control" name="images" id="images" multiple>
+    </div>
+    <!-- <div class="mb-3">
         <label class="form-label" for="image">Image: </label>
         <input type="text" class="form-control" name="image" id="image" value="<%=legend.image %>" required>
-    </div>
+    </div> -->
     <div class="mb-3">
         <label for="about" class="form-label">About: </label>
         <textarea class="form-control" name="about" id="about" cols="30" rows="5" required><%=legend.about%></textarea>
     </div>
-    <button class="btn btn-primary">Edit</button>
+    <label for="" class="my-3"><b>Check the Images You want to Delete</b></label>
+    <br>
+    <% for(let image of legend.images){ %>
+        <img src="<%=image.url%>" alt="" height="100" width="100">
+        <input type="checkbox"  name="deleteImages[]" value="<%=image.filename%>">
+    <% } %>
+    <br>  
+    <button class="btn btn-primary mt-3">Update</button>
 </form>
 </div>
 </div>

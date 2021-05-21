@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
 const comments = require('./comment');
 
+const ImageSchema = new mongoose.Schema({
+    url: String,
+    filename: String
+});
+
+
 const legendSchema = new mongoose.Schema({
     name: String,
     DOB: String,
     POB: String,
     about: String,
-    image: String,
+    images: [ImageSchema],
     author:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -19,8 +25,6 @@ const legendSchema = new mongoose.Schema({
     ]
 });
 
-module.exports = mongoose.model('Legend', legendSchema);
-
 legendSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
         await comments.deleteMany({
@@ -30,3 +34,7 @@ legendSchema.post('findOneAndDelete', async function (doc) {
         })
     }
 })
+
+module.exports = mongoose.model('Legend', legendSchema);
+
+

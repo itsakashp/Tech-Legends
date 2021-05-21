@@ -2,7 +2,7 @@
 <div class="row my-5">
     <div class="col-md-6 offset-md-3">
 <h1 class="text-center">New Legend</h1>
-<form action="/legends/new" method="post" class="needs-validation" novalidate>
+<form action="/legends/new" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
     <div class="mb-3">
         <label for="name" class="form-label">Name: </label>
         <input type="text" class="form-control" name="name" id="name" placeholder="Input Name" required>
@@ -15,9 +15,13 @@
         <label for="POB" class="form-label">Place Of Birth: </label>
         <input type="text" class="form-control" name="POB" id="POB" placeholder="Birth Place" required>
     </div>
-    <div class="mb-3">
+    <!-- <div class="mb-3">
         <label class="form-label" for="image">Image: </label>
         <input type="text" class="form-control" name="image" id="image" placeholder="Paste the image's URL here" required>
+    </div> -->
+    <div class="mb-3">
+        <label class="form-label" for="images">Upload Images</label>
+        <input class="form-control" type="file" id="images" name="images" multiple>
     </div>
     <div class="mb-3">
         <label for="about" class="form-label">About: </label>

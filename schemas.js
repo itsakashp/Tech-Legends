@@ -5,6 +5,6 @@ module.exports.legendSchema = Joi.object({
     DOB: Joi.date().required(),
     POB:Joi.string().required(),
     about:Joi.string().required(),
-    image:Joi.string().required()
+    deleteImages:Joi.array(),
 });
 
