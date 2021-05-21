@@ -1,0 +1,11 @@
+.cardhov:hover{
+    background-color: rgba(250, 198, 115, 0.993);
+    transition:background-color 500ms;
+
+
+}
+
+/* .navhov:hover{
+    background-color: rgba(156, 228, 61, 0.979);
+
+} */

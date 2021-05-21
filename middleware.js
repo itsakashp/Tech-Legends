@@ -33,6 +33,7 @@ module.exports.isCommentAuthor = async(req, res, next) => {
 }
 
 module.exports.validateLegend = (req, res, next) => {
+    console.log(req.files);
     const {error} = legendSchema.validate(req.body);
     if(error){
         throw new ExpressError(error.details[0].message, 400);
