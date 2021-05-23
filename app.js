@@ -16,12 +16,14 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local')
 const User = require('./models/user');
 const helmet = require('helmet')
+const mongoStore = require('connect-mongo');
 
 
 const app = express();
 
 //mongoose connection
-mongoose.connect('mongodb://localhost:27017/techLegends', {
+const dburl = process.env.MONGO_URL || 'mongodb://localhost:27017/techLegends';
+mongoose.connect(dburl, {
     useNewUrlParser: true, 
     useUnifiedTopology: true,
     useFindAndModify:false,
@@ -34,7 +36,14 @@ mongoose.connect('mongodb://localhost:27017/techLegends', {
 })
 
 //session configuration
+const store = mongoStore.create({
+    mongoUrl:dburl,
+    secret:process.env.SESSION_SECRET,
+    touchAfter:24*60*60
+})
+
 const sessionOptions = {
+    store,
     secret:process.env.SESSION_SECRET,
     resave:false,
     saveUninitialized:true,
@@ -45,6 +54,7 @@ const sessionOptions = {
     }
 
 }
+
 //middleware
 
 app.use(session(sessionOptions));
