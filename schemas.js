@@ -26,7 +26,7 @@ module.exports.legendSchema = Joi.object({
     name:Joi.string().required().min(4).max(30).escapeHTML(),
     DOB: Joi.date().required(),
     POB:Joi.string().required().escapeHTML(),
-    about:Joi.string().required().escapeHTML(),
+    about:Joi.string().required(),
     deleteImages:Joi.array(),
 });
 

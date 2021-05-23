@@ -65,7 +65,7 @@
           <% for(let comment of legend.comments){ %> 
             <div class="card-body">
               <ul class="list-group list-group-flush"></ul>
-              <li class="list-group-item">@<%=comment.author.username%> <br><%=comment.text%></li>
+              <li class="list-group-item"><b>@<%=comment.author.username%></b> <br><%=comment.text%></li>
               <% if(currentUser && comment.author._id.equals(currentUser._id)){ %> 
               <form action="/legends/<%=legend._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST" >
                 <button class="btn btn-sm btn-danger card-link m-2">Delete</button>

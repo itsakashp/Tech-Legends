@@ -12,6 +12,7 @@
   "dependencies": {
     "cloudinary": "^1.25.1",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.4.1",
     "dotenv": "^9.0.2",
     "ejs": "^2.7.4",
     "ejs-mate": "^3.0.0",

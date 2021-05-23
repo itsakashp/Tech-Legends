@@ -9,9 +9,9 @@
           <div class="col-md-8 ms-md-5 ps-md-5">
             <div class="card-body">
               <h5 class="card-title h2"><%=legend.name%></h5>
-              <p class="card-text"><%=legend.about%></p>
-              <p class="card-text"><small class="text-muted"><%=legend.POB%></small></p>
-              <a href="/legends/<%=legend._id%>" class="btn mt-5 btn-primary fw-bold" > <img src="images/info.png" alt="" width="30" height="21" class="d-inline-block align-text-top">  More about <%=legend.name%></a>
+              <p class="card-text"><%=legend.about.substr(0,550)%>.......</p>
+              <p class="card-text"><small class="text-muted"><i class="fas fa-globe-americas"></i> <%=legend.POB%></small></p>
+              <a href="/legends/<%=legend._id%>" class="btn mt-5 btn-primary fw-bold" > <i class="fas fa-info-circle fs-5 fw-bold"></i>  More about <%=legend.name%></a>
             </div>
           </div>
         </div>
