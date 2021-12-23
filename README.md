@@ -1,2 +1,2 @@
-The Project is Hosted on - [Tech Legends](https://techlegends.herokuapp.com/): 
+The Project is Hosted on -  
 [techlegends.ml](https://techlegends.herokuapp.com/)
