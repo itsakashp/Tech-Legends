@@ -1,1 +1,1 @@
-#[Tech Legends](https://techlegends.herokuapp.com/)
+[Tech Legends](https://techlegends.herokuapp.com/)
