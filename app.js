@@ -102,7 +102,7 @@ app.use((err, req, res, next) => {
     if(!err.message) err.message="Something's not good";
     res.status(status).render('error', {err});
 })
-
-app.listen(4000, ()=> {
-    console.log('listening on 4000*');
+const PORT=process.env.PORT;
+app.listen(PORT, ()=> {
+    console.log(`listening on ${PORT}`);
 })
