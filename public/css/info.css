@@ -1,6 +1,6 @@
 .cardhov:hover{
-    background-color: rgba(250, 198, 115, 0.993);
-    transition:background-color 500ms;
+    background: linear-gradient(to right, #ccdfff, #b8f97a);
+    transition:background 500ms;
 
 
 }
