@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %> 
 
-<div class="row">
+<div class="row" style="background: linear-gradient(to right, #ccdfff, #b8f97a);">
     <div class="col-md-6 offset-md-3 my-5">
         <div class="card ">
           <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -32,15 +32,15 @@
           </div>
             <!-- <img src="<%=legend.image%>" class="card-img-top" alt="<%=legend.name%>"  height="600"> -->
             <div class="card-body">
-              <h5 class="card-title"><%=legend.name%></h5>
+              <h1 class="card-title"><%=legend.name%></h1>
               <p class="card-text"><%= legend.about %></p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><%=legend.POB %></li>
-              <li class="list-group-item">Born: <%=legend.DOB %> </li>
+              <li class="list-group-item"><strong>🌎</strong> <%=legend.POB %></li>
+              <li class="list-group-item"><strong>Born:</strong> <%=legend.DOB %> </li>
             </ul>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Posted By: <%=legend.author.username%></li>
+              <li class="list-group-item"><strong>Posted By:</strong> <%=legend.author.username%></li>
             </ul>
             <% if(currentUser && legend.author.equals(currentUser._id)){ %> 
             <div class="card-body">
@@ -65,7 +65,7 @@
           <% for(let comment of legend.comments){ %> 
             <div class="card-body">
               <ul class="list-group list-group-flush"></ul>
-              <li class="list-group-item"><b>@<%=comment.author.username%></b> <br><%=comment.text%></li>
+              <li class="list-group-item"><strong>@<%=comment.author.username%></strong> <br><%=comment.text%></li>
               <% if(currentUser && comment.author._id.equals(currentUser._id)){ %> 
               <form action="/legends/<%=legend._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST" >
                 <button class="btn btn-sm btn-danger card-link m-2">Delete</button>
@@ -79,10 +79,3 @@
     </div>
 </div>
 
-
-
-
-
-
-
-<a href="/legends">All Legends</a>
