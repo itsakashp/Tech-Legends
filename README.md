@@ -19,4 +19,4 @@ Akash Purushotham
 * 0.1
     * Initial Release
 
-## Hosted: [techlegends.ml](https://techlegends.herokuapp.com/) 
+## Hosted live @ [techlegends](https://techlegends.onrender.com/)
